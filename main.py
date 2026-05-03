@@ -12,11 +12,13 @@ def main():
     while True :
         log_state()
         amount_time = clock.tick(60)
+        dt = amount_time/1000
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                return    
+                return
+            player.update(dt)
         screen.fill("black")
-        dt = amount_time/1000
         player.draw(screen)
         
         pygame.display.flip()
